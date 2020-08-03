@@ -1,3 +1,5 @@
-- LOGIN PAGE \*
+**_ LOGIN PAGE _**
 
-Simpre App to study and learn user authentication
+Simple App to study and learn User Authentication.
+
+I am building this App using MongoDB, EXPRESS and NODEJS.
