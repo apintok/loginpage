@@ -1,5 +1,7 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose'),
+	bcrypt = require('bcrypt'),
+	Schema = mongoose.Schema;
+// -------------------------------- \\
 
 var UserSchema = new Schema({
 	username: {
@@ -7,7 +9,17 @@ var UserSchema = new Schema({
 		trim: true,
 		unique: true
 	},
-	password: String
+	password: {
+		type: String
+	}
+});
+
+UserSchema.pre('save', async function (next) {
+	const user = this;
+	const hashedPwd = await bcrypt.hash(user.password, 10);
+	console.log('UserSchema PRE: ' + hashedPwd);
+	user.password = hashedPwd;
+	next();
 });
 
 var User = mongoose.model('User', UserSchema);
