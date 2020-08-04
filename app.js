@@ -5,8 +5,7 @@
 
 require('./src/db/mlab');
 const express = require('express'),
-	loginRoute = require('./src/routes/loginRoute'),
-	signupRoute = require('./src/routes/signupRoute'),
+	navRoute = require('./src/routes/navRoute'),
 	bodyParser = require('body-parser'),
 	app = express(),
 	PORT = 3000;
@@ -22,8 +21,7 @@ const chalk = require('chalk'),
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(loginRoute);
-app.use(signupRoute);
+app.use(navRoute);
 
 app.get('/', (req, res) => {
 	const test = { age: 30 };
