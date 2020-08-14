@@ -16,11 +16,11 @@ const chalk = require('chalk'),
 	err = chalk.bold.red;
 // ----------------------------- \\
 
-router.get('/signup', (req, res) => {
-	res.render('signup.ejs');
+router.get('/register', (req, res) => {
+	res.render('register.ejs');
 });
 
-router.get('/signup/user/:id', async (req, res) => {
+router.get('/register/user/:id', async (req, res) => {
 	try {
 		log('Sign Up GET user - ID: ' + wrn(req.params.id));
 		const user = await User.findById(req.params.id);
@@ -32,7 +32,7 @@ router.get('/signup/user/:id', async (req, res) => {
 	}
 });
 
-router.post('/signup', async (req, res) => {
+router.post('/register', async (req, res) => {
 	log('Sign Up POST - Request Content-Type: ' + wrn(req.headers['content-type']));
 	log('Sign Up POST - Request Body: ' + wrn(JSON.stringify(req.body)));
 
@@ -47,7 +47,7 @@ router.post('/signup', async (req, res) => {
 	}
 });
 
-router.delete('/signup/user/:id', async (req, res) => {
+router.delete('/register/user/:id', async (req, res) => {
 	try {
 		log('Sign Up DELETE user - ID: ' + wrn(req.params.id));
 		const user = await User.findByIdAndDelete(req.params.id);
