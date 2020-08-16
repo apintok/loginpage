@@ -40,11 +40,12 @@ function initializePassport(passport) {
     );
 
     passport.serializeUser(function (user, done) {
-        log('Passport - SERIALIZE USER: ' + msg(user));
+        // log('Passport - SERIALIZE USER: ' + msg(user));
         done(null, user);
     });
 
     passport.deserializeUser(function (user, done) {
+        log('Passport - DESERIALIZE USER: ' + msg(user));
         done(null, user);
     });
 }

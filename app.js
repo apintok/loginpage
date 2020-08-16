@@ -3,6 +3,7 @@
  * * App to learn user authentication
  */
 
+require('dotenv').config();
 require('./src/db/mlab');
 const express = require('express'),
 	navRoute = require('./src/routes/navRoute'),
@@ -30,7 +31,7 @@ initializePassport(passport);
 
 app.use(flash());
 app.use(session({
-	secret: 'love asia',
+	secret: process.env.SECRET,
 	resave: false,
 	saveUninitialized: false
 }));
