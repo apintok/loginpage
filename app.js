@@ -6,12 +6,15 @@
 require('dotenv').config();
 require('./src/db/mlab');
 const express = require('express'),
+	loginRoute = require('./src/routes/loginRoute'),
+	registerRoute = require('./src/routes/registerRoute'),
 	navRoute = require('./src/routes/navRoute'),
 	bodyParser = require('body-parser'),
 	session = require('express-session'),
 	flash = require('express-flash'),
+	methodOverride = require('method-override'),
 	passport = require('passport'),
-	{ initializePassport, checkAuthenticated, checkNotAuthenticated } = require('./src/utils/passport-config'),
+	{ initializePassport } = require('./src/utils/passport-config'),
 	app = express(),
 	PORT = 3000;
 // ------------------------------------------------------------- \\
@@ -30,46 +33,21 @@ app.use(bodyParser.json());
 initializePassport(passport);
 
 app.use(flash());
-app.use(session({
-	secret: process.env.SECRET,
-	resave: false,
-	saveUninitialized: false
-}));
+app.use(
+	session({
+		secret: process.env.SECRET,
+		resave: false,
+		saveUninitialized: false
+	})
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(methodOverride('_method'));
 
-app.get('/', checkAuthenticated, (req, res) => {
-	log('user is: ' + JSON.stringify(req.user));
-	if (req.user == undefined) {
-		var username = undefined;
-	} else {
-		var username = req.user.username;
-	}
-	res.render('index.ejs', {
-		username: username
-	});
-});
-
-app.get('/login', checkNotAuthenticated, (req, res) => {
-	res.render('login.ejs');
-});
-
-app.post(
-	'/login',
-	passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true })
-);
-
-app.get('/logout', (req, res) => {
-	req.logOut();
-	res.redirect('/login');
-});
-
+app.use(loginRoute);
+app.use(registerRoute);
 app.use(navRoute);
-
-app.get('*', (req, res) => {
-	res.status(404).send('Page Not Found');
-});
 
 app.listen(PORT, () => {
 	log(`\nServer Running on Port - ${scs(PORT)}\n`);

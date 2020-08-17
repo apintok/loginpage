@@ -4,13 +4,19 @@ const mongoose = require('mongoose'),
 // -------------------------------- \\
 
 var UserSchema = new Schema({
+	email: {
+		type: String,
+		unique: true
+	},
 	username: {
 		type: String,
 		trim: true,
 		unique: true
 	},
 	password: {
-		type: String
+		type: String,
+		required: true,
+		minlength: 8
 	}
 });
 
