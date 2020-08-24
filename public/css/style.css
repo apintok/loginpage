@@ -1,0 +1,33 @@
+* {
+	margin: 0 auto;
+}
+
+body {
+	background: #29293d;
+}
+
+.container {
+	border: 1px solid #000;
+	background-color: #fff;
+	max-width: 280px;
+	height: 260px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	top: 80px;
+}
+
+#lgn-btn {
+    border: 2px solid #009900;
+    border-radius: 50px 50px;
+	outline: none;
+	display: flex;
+	padding: 10px 70px;
+	text-transform: uppercase;
+	color: #fff;
+    background-color: #29293d;
+}
+
+#err-msg {
+    color: red;
+}

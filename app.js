@@ -10,6 +10,7 @@ const express = require('express'),
 	registerRoute = require('./src/routes/registerRoute'),
 	navRoute = require('./src/routes/navRoute'),
 	bodyParser = require('body-parser'),
+	path = require('path'),
 	session = require('express-session'),
 	flash = require('express-flash'),
 	methodOverride = require('method-override'),
@@ -27,6 +28,16 @@ const chalk = require('chalk'),
 	err = chalk.bold.red;
 // ----------------------------- \\
 
+/**
+ * ! SERVER PUBLIC DIRECTORY
+ */
+const publicDir = express.static(path.join(__dirname, 'public')),
+      cssDir    = express.static(path.join(__dirname, 'public/css'));
+// ------------------------------------------------------------------------------------------- \\
+
+app.use(publicDir);
+app.use(cssDir);
+app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

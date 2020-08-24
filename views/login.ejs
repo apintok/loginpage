@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Login</title>
-	</head>
+<%- include('./partials/head.ejs') %>
 
-	<body>
-		<h4>Login</h4>
-		<% if (messages.error) { %> <%= messages.error %> <% } %>
-		<div class="container">
-			<form action="/login" method="POST">
-				<label for="username">Username</label><br />
-				<input type="text" id="fname" name="username" /><br />
-				<label for="password">Password:</label><br />
-				<input type="password" id="password" name="password" /><br /><br />
-				<input type="submit" value="Login" />
-			</form>
-			<a href="/register">Sign Up</a>
-		</div>
-	</body>
-</html>
+
+
+<div class="container">
+	<h4>Login</h4>
+	<span id="err-msg"><% if (messages.error) { %> <%= messages.error %> <% } %></span>
+	<form action="/login" method="POST">
+		<label for="username">Username</label><br />
+		<input type="text" id="fname" name="username" /><br />
+		<label for="password">Password:</label><br />
+		<input type="password" id="password" name="password" /><br /><br />
+		<input id="lgn-btn" type="submit" value="Login" />
+	</form>
+	<!-- <a href="/register">Sign Up</a> -->
+</div>
+
+<%- include('./partials/footer.ejs') %>

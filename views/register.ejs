@@ -1,23 +1,18 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Register Form</title>
-	</head>
+<%- include('./partials/head.ejs') %>
 
-	<body>
-		<!-- <p>Request DB Admin to register.</p> -->
-		<h4>Register</h4>
-		<!-- <% if (messages.error) { %> <%= messages.error %> <% } %> -->
-		<div class="container">
-			<form action="/register" method="POST">
-				<label for="username">Username</label><br />
-				<input type="text" id="fname" name="username" /><br />
-				<label for="password">Password:</label><br />
-				<input type="password" id="password" name="password" /><br /><br />
-				<input type="submit" value="Register" />
-			</form>
-			<a href="/register">Sign Up</a>
-		</div>
-		<a href="/">Back</a>
-	</body>
-</html>
+<!-- <p>Request DB Admin to register.</p> -->
+<h4>Register</h4>
+<!-- <% if (messages.error) { %> <%= messages.error %> <% } %> -->
+<div class="container">
+	<form action="/register" method="POST">
+		<label for="username">Username</label><br />
+		<input type="text" id="fname" name="username" /><br />
+		<label for="password">Password:</label><br />
+		<input type="password" id="password" name="password" /><br /><br />
+		<input type="submit" value="Register" />
+	</form>
+	<a href="/register">Sign Up</a>
+</div>
+<a href="/">Back</a>
+
+<%- include('./partials/footer.ejs') %>

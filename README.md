@@ -1,4 +1,4 @@
-- LOGIN PAGE
+LOGIN PAGE
 
 * Simple App to study and learn User Authentication.
 * Building this App using MongoDB, EXPRESS and NODEJS.
@@ -6,5 +6,4 @@
 
 ** Current Progress **
 
-- Defining the Login Routes;
-- Set the Logout Route;
+- Define a general style for the pages;
