@@ -22,8 +22,10 @@ var UserSchema = new Schema({
 
 UserSchema.pre('save', async function (next) {
 	const user = this;
+	
 	const hashedPwd = await bcrypt.hash(user.password, 10);
 	user.password = hashedPwd;
+
 	next();
 });
 

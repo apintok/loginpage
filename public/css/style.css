@@ -4,30 +4,49 @@
 
 body {
 	background: #29293d;
+	font-family: 'Titillium Web', sans-serif;
 }
 
 .container {
 	border: 1px solid #000;
 	background-color: #fff;
-	max-width: 280px;
-	height: 260px;
+	max-width:350px;
+	height: 400px;
 	display: flex;
 	flex-direction: column;
 	position: relative;
 	top: 80px;
+	padding: 25px 0 0 0;
 }
 
-#lgn-btn {
-    border: 2px solid #009900;
-    border-radius: 50px 50px;
+form {
+	margin: 25px 25px;
+}
+
+.form-btn {
 	outline: none;
+	border: 2px solid #009900;
+	border-radius: 50px 50px;
+	background-color: #29293d;
 	display: flex;
-	padding: 10px 70px;
+	padding: 10px 60px;
+	font-size: 16px;
+	font-weight: normal;
 	text-transform: uppercase;
+	letter-spacing: 3px;
 	color: #fff;
-    background-color: #29293d;
 }
 
 #err-msg {
     color: red;
+}
+
+.form-input {
+	outline: none;
+	border: none;
+	border-bottom: 2px solid #009900;
+	overflow: hidden;
+	width: 100%;
+	padding: 4px 0;
+	margin: 4px 0;
 }

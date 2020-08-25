@@ -12,7 +12,9 @@ const chalk = require('chalk'),
 // -------------------------------------- \\
 
 router.get('/register', (req, res) => {
-	res.render('register.ejs');
+	res.render('register.ejs', {
+		error: ''
+	});
 });
 
 router.get('/register/user/:id', async (req, res) => {
@@ -45,10 +47,18 @@ router.post('/register', async (req, res) => {
 		const user = new User(req.body);
 
 		await user.save();
+
 		res.status(201).send('You have Registered Sucessfully!');
 	} catch (e) {
 		log('\nRegistered User POST - Catch Error: ' + err(e));
-		res.status(500).send(e);
+
+		if (e.errors.password.properties.type == 'required' && e.errors.password.properties.path == 'password') {
+			res.status(400).render('register.ejs', {
+				error: e
+			});
+		} else {
+			res.status(400).send(e);
+		}
 	}
 });
 
