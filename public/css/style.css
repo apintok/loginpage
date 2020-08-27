@@ -11,16 +11,41 @@ body {
 	border: 1px solid #000;
 	background-color: #fff;
 	max-width:350px;
-	height: 400px;
+	height: 430px;
 	display: flex;
 	flex-direction: column;
 	position: relative;
 	top: 80px;
-	padding: 25px 0 0 0;
+	padding: 15px 0 0 0;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	margin: 0 25px;
+}
+
+.main p {
+	padding-top: 15px;
+	text-align: justify;
+}
+
+.bottom {
+	display: flex;
+}
+
+.bottom img {
+	width: 50px;
+	padding: 0 5px;
 }
 
 form {
 	margin: 25px 25px;
+}
+
+a {
+	text-decoration: none;
+	color: #009900;
 }
 
 .form-btn {
@@ -38,7 +63,7 @@ form {
 }
 
 #err-msg {
-    color: red;
+	color: red;
 }
 
 .form-input {

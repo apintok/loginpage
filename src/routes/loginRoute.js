@@ -12,7 +12,7 @@ const chalk = require('chalk'),
 	err = chalk.bold.red;
 // ----------------------------- \\
 
-router.get('/', checkAuthenticated, (req, res) => {
+router.get('/', (req, res) => {
 	log('user is: ' + JSON.stringify(req.user));
 	if (req.user == undefined) {
 		var username = undefined;
@@ -35,7 +35,7 @@ router.post(
 
 router.delete('/logout', (req, res) => {
 	req.logOut();
-	res.redirect('/login');
+	res.redirect('/');
 });
 
 module.exports = router;

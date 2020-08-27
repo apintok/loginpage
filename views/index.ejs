@@ -1,11 +1,22 @@
 <%- include('./partials/head.ejs') %>
 
-<h4>Welcome <%= username %></h4>
-	<form action="/logout?_method=DELETE" method="POST">
-		<button type="submit">Logout</button>
-	</form>
-
-<a href="/login">Login</a>
-<a href="/register">Sign Up</a>
+<div class="container">
+	<div class="main">
+		<h4>Welcome <%= username %></h4>
+		<p>This small App was built to help me setup PassportJS with NodeJS and Express. I am currently updating the page to make it fully operational.
+			The main goal is to have a boiler plate I can use in future projects.
+		</p>
+		<form action="/logout?_method=DELETE" method="POST">
+			<button type="submit">Logout</button>
+		</form>
+		<a href="/login">Login</a>
+		<a href="/register">Sign Up</a>
+	</div>
+	<div class="bottom">
+		<img src="/images/passportjs-icon.JPG"/>
+		<img src="/images/nodejs-icon.JPG"/>
+		<img src="/images/expressjs-icon.JPG"/>
+	</div>
+</div>
 
 <%- include('./partials/footer.ejs') %>
