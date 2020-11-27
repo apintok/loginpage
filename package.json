@@ -4,7 +4,7 @@
   "description": "Login Page for Users",
   "main": "app.js",
   "scripts": {
-    "test": "nodemon app.js"
+    "dev": "nodemon app.js"
   },
   "keywords": [
     "login",

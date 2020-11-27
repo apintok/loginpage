@@ -32,6 +32,9 @@ body {
 
 .bottom {
 	display: flex;
+	width: 100%;
+	position: absolute;
+	bottom: 5px;
 }
 
 .bottom img {
